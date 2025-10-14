@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
+# Домашнее задание к занятию 2 "`НКластеризация и балансировка нагрузки`" - `Фамилия и имя студента`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -24,94 +24,152 @@
 
 ### Задание 1
 
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+`Конфигурационный файл haproxy`
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    chroot /var/lib/haproxy
+    stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+    stats timeout 30s
+    user haproxy
+    group haproxy
+    daemon
+
+    # Default SSL material locations
+    ca-base /etc/ssl/certs
+    crt-base /etc/ssl/private
+
+    # See: https://ssl-config.mozilla.org/#server=haproxy&server-version=2.0.3&config=intermediate
+    ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
+    ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
+    ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
+
+defaults
+    log global
+    mode tcp
+    option tcplog
+    option dontlognull
+    timeout connect 5000
+    timeout client 50000
+    timeout server 50000
+    errorfile 400 /etc/haproxy/errors/400.http
+    errorfile 403 /etc/haproxy/errors/403.http
+    errorfile 408 /etc/haproxy/errors/408.http
+    errorfile 500 /etc/haproxy/errors/500.http
+    errorfile 502 /etc/haproxy/errors/502.http
+    errorfile 503 /etc/haproxy/errors/503.http
+    errorfile 504 /etc/haproxy/errors/504.http
+
+listen stats  
+    bind :888
+    mode http
+    stats enable
+    stats uri /stats
+    stats refresh 5s
+    stats realm Haproxy\ Statistics
+
+listen web_tcp
+    mode tcp
+    bind :1325
+    balance roundrobin
+    option tcp-check
+    server s1 127.0.0.1:8888 check inter 3s fall 3 rise 2
+    server s2 127.0.0.1:9999 check inter 3s fall 3 rise 2
+
+frontend web_http
+    mode http
+    bind :8088
+    default_backend http_servers
+
+backend http_servers
+    mode http
+    balance roundrobin
+    server s1 127.0.0.1:8888 check
+    server s2 127.0.0.1:9999 check
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
+`Скриншот: перенаправление запросов на разные серверы при обращении к HAProxy`
 
+<img width="1595" height="679" alt="Снимок экрана 2025-10-14 в 23 21 45" src="https://github.com/user-attachments/assets/be1085a1-39e8-4195-bf81-8829cae68c84" />
 
 ---
 
 ### Задание 2
 
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+`Конфигурационный файл haproxy`
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    chroot /var/lib/haproxy
+    stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+    stats timeout 30s
+    user haproxy
+    group haproxy
+    daemon
+
+    ca-base /etc/ssl/certs
+    crt-base /etc/ssl/private
+
+    ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
+    ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
+    ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
+
+defaults
+    log global
+    mode http
+    option httplog
+    option dontlognull
+    timeout connect 5000
+    timeout client 50000
+    timeout server 50000
+    errorfile 400 /etc/haproxy/errors/400.http
+    errorfile 403 /etc/haproxy/errors/403.http
+    errorfile 408 /etc/haproxy/errors/408.http
+    errorfile 500 /etc/haproxy/errors/500.http
+    errorfile 502 /etc/haproxy/errors/502.http
+    errorfile 503 /etc/haproxy/errors/503.http
+    errorfile 504 /etc/haproxy/errors/504.http
+
+listen stats
+    bind :888
+    mode http
+    stats enable
+    stats uri /stats
+    stats refresh 5s
+    stats realm Haproxy\ Statistics
+
+frontend http_frontend
+    mode http
+    bind :8088
+    
+    acl is_example_local hdr(host) -i example.local
+    use_backend weighted_servers if is_example_local
+    default_backend default_servers
+
+backend weighted_servers
+    mode http
+    balance roundrobin
+    server s1 127.0.0.1:8888 weight 2 check
+    server s2 127.0.0.1:8889 weight 3 check
+    server s3 127.0.0.1:8890 weight 4 check
+
+backend default_servers
+    mode http
+    balance roundrobin
+    server s1 127.0.0.1:8888 check
+    server s2 127.0.0.1:8889 check
+    server s3 127.0.0.1:8890 check
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 2](ссылка на скриншот 2)`
+`Скриншоты: перенаправление запросов на разные серверы при обращении к HAProxy c использованием домена example.local и без него`
 
+<img width="734" height="604" alt="Снимок экрана 2025-10-14 в 23 55 57" src="https://github.com/user-attachments/assets/e3af75d7-426a-429d-af01-09b6dc1b1a9f" />
+
+<img width="1309" height="701" alt="Снимок экрана 2025-10-14 в 23 58 23" src="https://github.com/user-attachments/assets/619d1329-f362-4692-98a5-713c67d32934" />
 
 ---
 
-### Задание 3
-
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
-
-### Задание 4
-
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
