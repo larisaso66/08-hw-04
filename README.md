@@ -177,7 +177,15 @@ backend default_servers
 
 `Скриншоты: перенаправление запросов на разные серверы при обращении к HAProxy c использованием домена example.local и без него`
 
-<img width="734" height="604" alt="Снимок экрана 2025-10-14 в 23 55 57" src="https://github.com/user-attachments/assets/e3af75d7-426a-429d-af01-09b6dc1b1a9f" />
+`Тест Round Robin с доменом example.local`
+
+<img width="751" height="631" alt="With domain" src="https://github.com/user-attachments/assets/205b20d7-5742-491a-8601-89b0374d49b0" />
+
+`Тест Round Robin без домена`
+
+<img width="705" height="371" alt="Without domain" src="https://github.com/user-attachments/assets/94a7da0c-7f0f-41ab-a3e3-5b7c7487dada" />
+
+`Общая статистика`
 
 <img width="1309" height="701" alt="Снимок экрана 2025-10-14 в 23 58 23" src="https://github.com/user-attachments/assets/619d1329-f362-4692-98a5-713c67d32934" />
 
