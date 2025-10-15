@@ -24,7 +24,7 @@
 
 ### Задание 1
 
-[Конфигурационный файл haproxy](task1/haproxy_t1.cfg)
+[Конфигурационный файл haproxy](task1/haproxy.cfg)
 
 ```
 global
