@@ -32,6 +32,7 @@
 
 <img width="738" height="552" alt="TCP L4 balancing" src="https://github.com/user-attachments/assets/69e36e36-86f1-415a-8727-d89f15c47da1" />
 
+
 `Общая статистика`
 
 <img width="1595" height="679" alt="Снимок экрана 2025-10-14 в 23 21 45" src="https://github.com/user-attachments/assets/c789684e-4f47-4a74-b877-3ad9dc4c4054" />
@@ -51,6 +52,7 @@
 `Тест Round Robin без домена`
 
 <img width="889" height="135" alt="Without domain" src="https://github.com/user-attachments/assets/78f1f9e6-4837-42d1-b8ab-d4d08af46900" />
+
 
 `Общая статистика`
 
