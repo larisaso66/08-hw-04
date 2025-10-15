@@ -183,11 +183,11 @@ backend default_servers
 
 `Тест Round Robin без домена`
 
-<img width="705" height="371" alt="Without domain" src="https://github.com/user-attachments/assets/94a7da0c-7f0f-41ab-a3e3-5b7c7487dada" />
+<img width="889" height="135" alt="Without domain" src="https://github.com/user-attachments/assets/78f1f9e6-4837-42d1-b8ab-d4d08af46900" />
 
 `Общая статистика`
 
-<img width="1309" height="701" alt="Снимок экрана 2025-10-14 в 23 58 23" src="https://github.com/user-attachments/assets/619d1329-f362-4692-98a5-713c67d32934" />
+<img width="1307" height="637" alt="Снимок экрана 2025-10-15 в 11 11 56" src="https://github.com/user-attachments/assets/c24bb79e-e192-4973-8045-f377a777eea5" />
 
 ---
 
