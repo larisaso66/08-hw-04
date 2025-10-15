@@ -90,7 +90,17 @@ backend http_servers
     server s2 127.0.0.1:9999 check
 ```
 
-`Скриншот: перенаправление запросов на разные серверы при обращении к HAProxy`
+`Скриншоты: перенаправление запросов на разные серверы при обращении к HAProxy`
+
+`TCP балансировка L4 уровень`
+
+<img width="738" height="552" alt="TCP L4 balancing" src="https://github.com/user-attachments/assets/388f46d8-c924-499c-977e-6a6f404988ce" />
+
+`Балансировка HTTP`
+
+<img width="738" height="546" alt="HTTP balancing" src="https://github.com/user-attachments/assets/ea22ed2e-7511-4276-abc3-22cc2658973c" />
+
+`Общая статистика`
 
 <img width="1595" height="679" alt="Снимок экрана 2025-10-14 в 23 21 45" src="https://github.com/user-attachments/assets/be1085a1-39e8-4195-bf81-8829cae68c84" />
 
