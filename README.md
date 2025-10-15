@@ -49,6 +49,7 @@
 
 <img width="751" height="631" alt="With domain" src="https://github.com/user-attachments/assets/205b20d7-5742-491a-8601-89b0374d49b0" />
 
+
 `Тест Round Robin без домена`
 
 <img width="889" height="135" alt="Without domain" src="https://github.com/user-attachments/assets/78f1f9e6-4837-42d1-b8ab-d4d08af46900" />
