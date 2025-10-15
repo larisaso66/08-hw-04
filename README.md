@@ -154,7 +154,7 @@ frontend http_frontend
     
     acl is_example_local hdr(host) -i example.local
     use_backend weighted_servers if is_example_local
-    default_backend default_servers
+    default_backend reject_backend
 
 backend weighted_servers
     mode http
@@ -163,12 +163,10 @@ backend weighted_servers
     server s2 127.0.0.1:8889 weight 3 check
     server s3 127.0.0.1:8890 weight 4 check
 
-backend default_servers
+backend reject_backend
     mode http
-    balance roundrobin
-    server s1 127.0.0.1:8888 check
-    server s2 127.0.0.1:8889 check
-    server s3 127.0.0.1:8890 check
+    errorfile 503 /etc/haproxy/errors/503.http
+    http-request deny deny_status 403
 ```
 
 `Скриншоты: перенаправление запросов на разные серверы при обращении к HAProxy c использованием домена example.local и без него`
