@@ -26,6 +26,16 @@
 
 [Конфигурационный файл haproxy](task1/haproxy.cfg)
 
+`Скриншоты: перенаправление запросов на разные серверы при обращении к HAProxy`
+
+`Баланстровка Round Robin L4`
+
+<img width="738" height="552" alt="TCP L4 balancing" src="https://github.com/user-attachments/assets/69e36e36-86f1-415a-8727-d89f15c47da1" />
+
+`Общая статистика`
+
+<img width="1595" height="679" alt="Снимок экрана 2025-10-14 в 23 21 45" src="https://github.com/user-attachments/assets/c789684e-4f47-4a74-b877-3ad9dc4c4054" />
+
 ---
 
 ### Задание 2
