@@ -94,11 +94,11 @@ backend http_servers
 
 `TCP балансировка L4 уровень`
 
-<img width="738" height="552" alt="TCP L4 balancing" src="https://github.com/user-attachments/assets/388f46d8-c924-499c-977e-6a6f404988ce" />
+<img width="738" height="552" alt="TCP L4 balancing" src="https://github.com/user-attachments/assets/8e339042-f98a-41e7-ab4a-f72561fe0ace" />
 
 `Балансировка HTTP`
 
-<img width="738" height="546" alt="HTTP balancing" src="https://github.com/user-attachments/assets/ea22ed2e-7511-4276-abc3-22cc2658973c" />
+<img width="738" height="546" alt="HTTP balancing" src="https://github.com/user-attachments/assets/af441e1c-341f-4c92-a469-342dd35a02eb" />
 
 `Общая статистика`
 
