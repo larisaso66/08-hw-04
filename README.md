@@ -96,10 +96,6 @@ backend http_servers
 
 <img width="738" height="552" alt="TCP L4 balancing" src="https://github.com/user-attachments/assets/8e339042-f98a-41e7-ab4a-f72561fe0ace" />
 
-`Балансировка HTTP`
-
-<img width="738" height="546" alt="HTTP balancing" src="https://github.com/user-attachments/assets/af441e1c-341f-4c92-a469-342dd35a02eb" />
-
 `Общая статистика`
 
 <img width="1595" height="679" alt="Снимок экрана 2025-10-14 в 23 21 45" src="https://github.com/user-attachments/assets/be1085a1-39e8-4195-bf81-8829cae68c84" />
