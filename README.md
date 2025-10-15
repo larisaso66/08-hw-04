@@ -181,7 +181,7 @@ backend reject_backend
 
 `Общая статистика`
 
-<img width="1307" height="637" alt="Снимок экрана 2025-10-15 в 11 11 56" src="https://github.com/user-attachments/assets/c24bb79e-e192-4973-8045-f377a777eea5" />
+<img width="1307" height="637" alt="Снимок экрана 2025-10-15 в 12 14 33" src="https://github.com/user-attachments/assets/537dadeb-a11c-40da-a5ef-7519c5fdceb1" />
 
 ---
 
