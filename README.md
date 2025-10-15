@@ -32,7 +32,7 @@
 
 `Тест Round Robin без домена`
 
-<img width="889" height="135" alt="Without domain" src="https://github.com/user-attachments/assets/78f1f9e6-4837-42d1-b8ab-d4d08af46900" />
+<img width="889" height="135" alt="Without domain" src="https://github.com/user-attachments/assets/34dee825-b4b3-45b3-a437-b4b6142c025a" />
 
 
 `Общая статистика`
